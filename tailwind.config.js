@@ -15,7 +15,7 @@ module.exports = {
         "purple": "#C71BDB"
       },
       fontFamily: {
-        "helix": "'helix', sans-serif"
+        "manrope": "'Manrope', sans-serif"
       }
     },
   },
