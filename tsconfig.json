@@ -18,6 +18,15 @@
     "paths": {
       "components/*": [
         "./components/*"
+      ],
+      "config/*": [
+        "./config/*"
+      ],
+      "query/*": [
+        "./query/*"
+      ],
+      "types/*": [
+        "./types/*"
       ]
     }
   },
