@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
-import Link from "next/link";
+// import { HiOutlineMenuAlt3 } from "react-icons/hi";
+// import { IoClose } from "react-icons/io5";
+// import Link from "next/link";
 
-const Navar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const Navbar = () => {
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const onMobileNavToggleClick = () => {
-    setIsOpen((prev) => !prev);
-  };
+  // const onMobileNavToggleClick = () => {
+  //   setIsOpen((prev) => !prev);
+  // };
 
-  const onNavLinkClick = () => setIsOpen(false);
+  // const onNavLinkClick = () => setIsOpen(false);
 
   return (
     <div className="w-full px-5 py-3 flex items-center justify-between relative">
@@ -22,7 +22,7 @@ const Navar = () => {
         </h1>
       </div>
 
-      <div
+      {/* <div
         className={`z-10 md:relative absolute flex-grow md:ml-5 md:h-full h-screen w-full left-0 top-0 md:flex md:flex-row md:items-center md:justify-end ${
           isOpen ? "flex" : "hidden"
         } flex-col items-center justify-center md:bg-transparent ${
@@ -58,9 +58,9 @@ const Navar = () => {
           className="z-20 md:hidden text-purple"
           onClick={onMobileNavToggleClick}
         />
-      )}
+      )} */}
     </div>
   );
 };
 
-export default Navar;
+export default Navbar;
