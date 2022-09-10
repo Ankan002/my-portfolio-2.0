@@ -3,6 +3,9 @@ import Typewriter from "typewriter-effect";
 import { IoIosArrowDown } from "react-icons/io";
 
 const Hero = () => {
+
+  //TODO: Fix a / an gramatical error.
+
   return (
     <div className="flex-1 w-full flex flex-col">
       <div className="flex-1 w-full flex flex-col items-center justify-center">
@@ -24,7 +27,7 @@ const Hero = () => {
         </h1>
       </div>
       <div className="w-full flex items-center justify-center px-2 py-1 mb-10">
-        <button>
+        <button onClick={() => location.href = "#about-me"}>
           <IoIosArrowDown size={30} className="text-vermillion hover:text-purple transition-all ease-in-out" />
         </button>
       </div>
