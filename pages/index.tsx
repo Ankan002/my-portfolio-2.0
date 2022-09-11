@@ -7,18 +7,38 @@ import { Testimonial } from "types/testimonial";
 import { Skill } from "types/skill";
 import { useEffect } from "react";
 import { Profile } from "types/profile";
+import { useSetRecoilState } from "recoil";
+import { profileAtom, skillsAtom, testimonialsAtom } from "atoms";
 
 interface Props {
   testimonials: Array<Testimonial>;
   skills: Array<Skill>;
-  profile: Profile
+  profile: Profile;
 }
 
 const Home: NextPage<Props> = (props) => {
 
+  const setProfile = useSetRecoilState<Profile>(profileAtom);
+  const setSkils = useSetRecoilState<Array<Skill>>(skillsAtom);
+  const setTestimonials = useSetRecoilState<Array<Testimonial>>(testimonialsAtom);
+
   useEffect(() => {
     console.log(props);
-  }, [props])
+
+    const { testimonials, skills, profile } = props;
+
+    if(profile){
+      setProfile(profile);
+    }
+
+    if(testimonials){
+      setTestimonials(testimonials);
+    }
+
+    if(skills){
+      setSkils(skills);
+    }
+  }, [props]);
 
   return (
     <div>

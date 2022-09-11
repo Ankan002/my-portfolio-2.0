@@ -20,7 +20,8 @@ module.exports = {
         "primary-red": "#D61C4E"
       },
       fontFamily: {
-        "manrope": "'Manrope', sans-serif"
+        "manrope": "'Manrope', sans-serif",
+        "fira-code": "'Fira Code', monospace"
       }
     },
   },
