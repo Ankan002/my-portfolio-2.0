@@ -17,7 +17,8 @@ module.exports = {
         "light-grey": "#B5BAC7",
         "semi-transparent": "rgba(0, 0, 0, 0.6)",
         "primary-green": "#08CD92",
-        "primary-red": "#D61C4E"
+        "primary-red": "#D61C4E",
+        "secondary-dark": "#08070C",
       },
       fontFamily: {
         "manrope": "'Manrope', sans-serif",

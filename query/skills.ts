@@ -7,6 +7,9 @@ export const allSkillsQuery = gql`
             name
             category
             proficiency_level
+            image {
+                url
+            }
         }
     }
 `

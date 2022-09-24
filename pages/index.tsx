@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { CustomHead } from "components/elements";
-import { Navbar, Hero, AboutMe } from "components";
+import { Navbar, Hero, AboutMe, Skills } from "components";
 import { getGraphQLClient } from "config/graphql-client";
 import { allTestimonialsQuery, allSkillsQuery, profileQuery } from "query";
 import { Testimonial } from "types/testimonial";
@@ -14,6 +14,15 @@ interface Props {
   testimonials: Array<Testimonial>;
   skills: Array<Skill>;
   profile: Profile;
+}
+
+interface DecodedSkill {
+  id: string
+  proficiency_level: number;
+  category: "frontend" | "backend" | "language" | "devops";
+  image: {
+    url: string;
+  }
 }
 
 const Home: NextPage<Props> = (props) => {
@@ -53,6 +62,7 @@ const Home: NextPage<Props> = (props) => {
         </div>
 
         <AboutMe />
+        <Skills />
       </main>
     </div>
   );
@@ -71,10 +81,17 @@ export const getStaticProps = async() => {
     profile_picture: profileData.profile.profile_picture?.url
   }
 
+  const skills = skillsData.skills.map((skill: DecodedSkill) => {
+    return {
+      ...skill,
+      image: skill.image.url
+    }
+  });
+
   return {
     props: {
       testimonials: testimonialsData?.testimonials,
-      skills: skillsData?.skills,
+      skills,
       profile: aboutMe
     },
     revalidate: 12 * 60 * 60
