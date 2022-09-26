@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { CustomHead } from "components/elements";
-import { Navbar, Hero, AboutMe, Skills } from "components";
+import { Navbar, Hero, AboutMe, Skills, Projects } from "components";
 import { getGraphQLClient } from "config/graphql-client";
 import { allTestimonialsQuery, allSkillsQuery, profileQuery } from "query";
 import { Testimonial } from "types/testimonial";
@@ -63,6 +63,7 @@ const Home: NextPage<Props> = (props) => {
 
         <AboutMe />
         <Skills />
+        <Projects />
       </main>
     </div>
   );
