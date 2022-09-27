@@ -30,6 +30,7 @@ const ProjectCard = (props: Props) => {
             objectFit="contain"
             layout="fill"
             className="rounded-md"
+            priority={true}
           />
         </div>
 
@@ -42,7 +43,23 @@ const ProjectCard = (props: Props) => {
         </p>
 
         <div className="w-full flex-1 flex flex-col justify-end">
-            <button className="w-full flex items-center justify-center mt-2 py-1 px-2 rounded-md bg-gradient-to-r from-primary-yellow to-vermillion text-primary-dark hover:bg-gradient-to-l tracking-widest lg:text-lg md:text-base text-xs" onClick={onLivePreviewClick}>
+            <div className="w-full flex flex-wrap mt-1">  
+                {
+                    project.technologies.map((tech, index) => (
+                        <div key={index} className="p-1 border-[1px] rounded-sm m-1 border-vermillion bg-vermillion/50 flex items-center justify-center hover:cursor-pointer">
+                            <p className="text-xs tracking-wider text-primary-light/80">
+                                {tech}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div>
+              
+            </div>
+
+            <button className="w-full flex items-center justify-center mt-2 py-1 px-2 rounded-md bg-gradient-to-r from-primary-yellow to-vermillion text-primary-dark hover:bg-gradient-to-l tracking-widest lg:text-lg md:text-base text-xs transition-all ease-in-out delay-1000" onClick={onLivePreviewClick}>
                 LIVE
             </button>
         </div>

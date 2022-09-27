@@ -11,7 +11,7 @@ const SkillCard = (props: Props) => {
 
   return (
     <div
-      className="p-2 bg-secondary-dark border-2 rounded border-primary-yellow/40 hover:border-vermillion hover:cursor-pointer transition-all ease-in-out m-1 flex items-center justify-center relative"
+      className="p-2 bg-secondary-dark border-2 rounded border-primary-yellow/40 hover:border-vermillion hover:cursor-pointer transition-all ease-in-out m-1 flex items-center justify-center relative hover:shadow-[0_1px_12px_2px_rgba(199,27,219,0.7)]"
       key={skill.id}
     >
       <Image src={skill.image} alt="" height={80} width={80} />
