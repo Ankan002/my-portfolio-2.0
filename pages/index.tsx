@@ -2,27 +2,21 @@ import type { NextPage } from "next";
 import { CustomHead } from "components/elements";
 import { Navbar, Hero, AboutMe, Skills, Projects } from "components";
 import { getGraphQLClient } from "config/graphql-client";
-import { allTestimonialsQuery, allSkillsQuery, profileQuery } from "query";
+import { allTestimonialsQuery, allSkillsQuery, profileQuery, projectQuery } from "query";
 import { Testimonial } from "types/testimonial";
 import { Skill } from "types/skill";
+import { Project } from "types/project";
 import { useEffect } from "react";
 import { Profile } from "types/profile";
 import { useSetRecoilState } from "recoil";
+import { DecodedSkill, DecodedProject } from "types/query-response";
 import { profileAtom, skillsAtom, testimonialsAtom } from "atoms";
 
 interface Props {
   testimonials: Array<Testimonial>;
   skills: Array<Skill>;
   profile: Profile;
-}
-
-interface DecodedSkill {
-  id: string
-  proficiency_level: number;
-  category: "frontend" | "backend" | "language" | "devops";
-  image: {
-    url: string;
-  }
+  projects: Array<Project>;
 }
 
 const Home: NextPage<Props> = (props) => {
@@ -76,6 +70,7 @@ export const getStaticProps = async() => {
   const profileData = await graphQLClient.request(profileQuery);
   const testimonialsData = await graphQLClient.request(allTestimonialsQuery);
   const skillsData = await graphQLClient.request(allSkillsQuery);
+  const projectsData = await graphQLClient.request(projectQuery);
 
   const aboutMe = {
     ...profileData.profile,
@@ -86,14 +81,22 @@ export const getStaticProps = async() => {
     return {
       ...skill,
       image: skill.image.url
-    }
+    };
+  });
+
+  const projects = projectsData.projects.map((project: DecodedProject) => {
+    return {
+      ...project,
+      image: project.image.url
+    };
   });
 
   return {
     props: {
       testimonials: testimonialsData?.testimonials,
       skills,
-      profile: aboutMe
+      profile: aboutMe,
+      projects
     },
     revalidate: 12 * 60 * 60
   }
