@@ -14,9 +14,27 @@ const ProjectCard = (props: Props) => {
         window.open(
             project.live,
             "_blank"
-        )
+        );
     }
-  }
+  };
+
+  const onBackendCodeClick = () => {
+    if(project.backend_code){
+      window.open(
+        project.backend_code,
+        "_blank"
+      );
+    }
+  };
+
+  const onFrontendCodeClick = () => {
+    if(project.frontend_code){
+      window.open(
+        project.frontend_code,
+        "_blank"
+      );
+    }
+  };
 
   return (
     <div
@@ -55,9 +73,21 @@ const ProjectCard = (props: Props) => {
                 }
             </div>
 
-            <div>
-              
-            </div>
+              {
+                project.frontend_code && (
+                  <button className="w-full flex items-center justify-center border-2 p-1 mt-2 border-vermillion rounded-md text-transparent bg-clip-text bg-gradient-to-r from-primary-yellow via-vermillion to-purple hover:bg-gradient-to-l md:text-base text-xs" onClick={onFrontendCodeClick}>
+                    FRONTEND CODE
+                  </button>
+                )
+              }
+
+              {
+                project.backend_code && (
+                  <button className="w-full flex items-center justify-center border-2 p-1 mt-2 border-vermillion rounded-md text-transparent bg-clip-text bg-gradient-to-r from-primary-yellow via-vermillion to-purple hover:bg-gradient-to-l md:text-base text-xs" onClick={onBackendCodeClick}>
+                    BACKEND CODE
+                  </button>
+                )
+              }
 
             <button className="w-full flex items-center justify-center mt-2 py-1 px-2 rounded-md bg-gradient-to-r from-primary-yellow to-vermillion text-primary-dark hover:bg-gradient-to-l tracking-widest lg:text-lg md:text-base text-xs transition-all ease-in-out delay-1000" onClick={onLivePreviewClick}>
                 LIVE
