@@ -12,6 +12,7 @@ export interface DecodedProject {
     rank: number;
     title: string;
     small_description: string;
+    description?: string;
     technologies: Array<string>;
     image: {
         url: string;
