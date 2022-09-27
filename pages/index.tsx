@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { Profile } from "types/profile";
 import { useSetRecoilState } from "recoil";
 import { DecodedSkill, DecodedProject } from "types/query-response";
-import { profileAtom, skillsAtom, testimonialsAtom } from "atoms";
+import { profileAtom, skillsAtom, testimonialsAtom, projectsAtom } from "atoms";
 
 interface Props {
   testimonials: Array<Testimonial>;
@@ -24,11 +24,12 @@ const Home: NextPage<Props> = (props) => {
   const setProfile = useSetRecoilState<Profile>(profileAtom);
   const setSkils = useSetRecoilState<Array<Skill>>(skillsAtom);
   const setTestimonials = useSetRecoilState<Array<Testimonial>>(testimonialsAtom);
+  const setProjects = useSetRecoilState<Array<Project>>(projectsAtom);
 
   useEffect(() => {
     console.log(props);
 
-    const { testimonials, skills, profile } = props;
+    const { testimonials, skills, profile, projects } = props;
 
     if(profile){
       setProfile(profile);
@@ -40,6 +41,10 @@ const Home: NextPage<Props> = (props) => {
 
     if(skills){
       setSkils(skills);
+    }
+
+    if(projects){
+      setProjects(projects);
     }
   }, [props]);
 
