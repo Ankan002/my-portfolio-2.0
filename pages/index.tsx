@@ -27,8 +27,6 @@ const Home: NextPage<Props> = (props) => {
   const setProjects = useSetRecoilState<Array<Project>>(projectsAtom);
 
   useEffect(() => {
-    console.log(props);
-
     const { testimonials, skills, profile, projects } = props;
 
     if(profile){
