@@ -11,7 +11,7 @@ const CustomHead = (props: Props) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content="Believe me I am a programmer" />
+      <meta name="description" content="I am programmer who believes in incremental improvement..." />
       <link rel="icon" href="/logo.svg" />
     </Head>
   );
